@@ -1,4 +1,4 @@
-package com.melo.scala.solutions
+package com.melo.scala.solutions.problems
 
 import com.melo.scala.solutions.core._
 
