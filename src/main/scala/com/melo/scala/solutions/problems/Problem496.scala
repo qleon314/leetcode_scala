@@ -1,8 +1,6 @@
 package com.melo.scala.solutions.problems
 
 import com.melo.scala.solutions.core.Jobs
-
-import scala.collection.mutable
 import scala.collection.mutable.Stack
 
 /**
