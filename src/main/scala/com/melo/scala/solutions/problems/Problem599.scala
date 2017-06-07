@@ -10,20 +10,19 @@ import scala.collection.mutable.Stack
 object Problem599 extends Jobs {
   def findRestaurant(list1: List[String], list2: List[String]): List[String] = {
     val intersect = list1.intersect(list2)
-    val stack = Stack[String]()
+    var result = Stack[String]()
     for (str <- intersect) {
       val rank = list1.indexOf(str) + list2.indexOf(str)
-
-      while (stack.nonEmpty) {
-        val preRank = list1.indexOf(stack.top) + list2.indexOf(stack.top)
-        if (rank < preRank) {
-          stack.clear()
-          stack.push(str)
+      if (result.isEmpty) result.push(str)
+      else {
+        val preRank = list1.indexOf(result.top) + list2.indexOf(result.top)
+        if (rank == preRank) result.push(str)
+        else if (rank < preRank) {
+          result.clear()
+          result.push(str)
         }
-        else if (rank == preRank) stack.push(str)
       }
-      stack.push(str)
     }
-    stack.toList
+    result.toList
   }
 }
